@@ -24,6 +24,10 @@ assists people when migrating to a new version.
 
 ## Next
 
+### Build details (git SHA / build number) are admin-only by default
+
+The git SHA and build number surfaced in the "About" section and the bootstrap payload are now only included for admin users by default; the release version string is still shown to everyone. To expose the build details to all users (the previous behavior), set the `SUPERSET_EXPOSE_BUILD_DETAILS` environment variable (or `EXPOSE_BUILD_DETAILS_TO_USERS = True` in `superset_config.py`).
+
 ### Pivot table First/Last aggregations follow data order
 
 The pivot table chart's `First` and `Last` aggregations now return the first and last value in data (query result) order, instead of effectively returning the minimum and maximum. Existing pivot tables that use these aggregations for totals/subtotals may show different values after upgrading. For deterministic results, ensure the underlying query has a stable sort order.
